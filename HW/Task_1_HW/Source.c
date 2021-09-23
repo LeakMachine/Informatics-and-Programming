@@ -5,6 +5,7 @@ int main()
 {
 	int letter1, letter2, number1, number2;
 	int ChessUnit;
+	int no;
 
 	printf("1 - King \n2 - Queen \n3 - Bishop \n4 - Rook \n5 - Knight \nPick your unit: "); // Король, Ферзь, Слон, Ладья, Конь
 	scanf_s("%d", &ChessUnit);
@@ -39,45 +40,204 @@ int main()
 		{
 		case 1: // Король
 			if ((letter1 == letter2) & (number1 == number2))
-				printf("King is already here.");
+				printf("King is already here.\n");
 			else if ((abs(letter1 - letter2) == 1) & (abs(number1 - number2) == 1))
-				printf("King can move here.");
+				printf("King can move here.\n");
 			else
-				printf("King can't move here.");
+				printf("King can't move here.\n");
+				no = 1;
 			break;
 		case 2: // Ферзь
 			if ((letter1 == letter2) & (number1 == number2))
-				printf("Queen is already here.");
+				printf("Queen is already here.\n");
 			else if ((((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0)) || (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2))))
-				printf("Queen can move here.");
+				printf("Queen can move here.\n");
 			else
-				printf("Queen can't move here.");
+				printf("Queen can't move here.\n");
+			    no = 2;
 			break;
 		case 3: // Слон
 			if ((letter1 == letter2) & (number1 == number2))
-				printf("Bishop is already here.");
+				printf("Bishop is already here.\n");
 			else if (((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0))
-				printf("Bishop can move here.");
+				printf("Bishop can move here.\n");
 			else
-				printf("Bishop can't move here.");
+				printf("Bishop can't move here.\n");
+				no = 3;	
 			break;
 		case 4: // Ладья
 			if ((letter1 == letter2) & (number1 == number2))
-				printf("Rook is already here.");
+				printf("Rook is already here.\n");
 			else if (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2)))
-				printf("Rook can move here.");
+				printf("Rook can move here.\n");
 			else
-				printf("Rook can't move here.");
+				printf("Rook can't move here.\n");
+				no = 4;
 			break;
 		case 5: // Конь
 			if ((letter1 == letter2) & (number1 == number2))
-				printf("Knight is already here.");
+				printf("Knight is already here.\n");
 			else if (((abs(letter1 - letter2) == 2) || (abs(letter1 - letter2) == 1)) & ((abs(number1 - number2) == 2) || (abs(number1 - number2) == 1)))
-				printf("Knight can move here.");
+				printf("Knight can move here.\n");
 			else
-				printf("Knight can't move here.");
+				printf("Knight can't move here.\n");
+				no = 5;
 			break;
 		}
+	switch (no)
+	{
+		case 1:
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Queen is already here.\n");
+			else if ((((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0)) || (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2))))
+				printf("Queen can move here.\n");
+			else
+				printf("Queen can't move here.\n");
 
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Bishop is already here.\n");
+			else if (((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0))
+				printf("Bishop can move here.\n");
+			else
+				printf("Bishop can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Rook is already here.\n");
+			else if (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2)))
+				printf("Rook can move here.\n");
+			else
+				printf("Rook can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Knight is already here.\n");
+			else if (((abs(letter1 - letter2) == 2) || (abs(letter1 - letter2) == 1)) & ((abs(number1 - number2) == 2) || (abs(number1 - number2) == 1)))
+				printf("Knight can move here.\n");
+			else
+				printf("Knight can't move here.\n");
+			break;
+		case 2: 
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("King is already here.\n");
+			else if ((abs(letter1 - letter2) == 1) & (abs(number1 - number2) == 1))
+				printf("King can move here.\n");
+			else
+				printf("King can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Bishop is already here.\n");
+			else if (((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0))
+				printf("Bishop can move here.\n");
+			else
+				printf("Bishop can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Rook is already here.\n");
+			else if (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2)))
+				printf("Rook can move here.\n");
+			else
+				printf("Rook can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Knight is already here.\n");
+			else if (((abs(letter1 - letter2) == 2) || (abs(letter1 - letter2) == 1)) & ((abs(number1 - number2) == 2) || (abs(number1 - number2) == 1)))
+				printf("Knight can move here.\n");
+			else
+				printf("Knight can't move here.\n");
+			break;
+
+		case 3:
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("King is already here.\n");
+			else if ((abs(letter1 - letter2) == 1) & (abs(number1 - number2) == 1))
+				printf("King can move here.\n");
+			else
+				printf("King can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Queen is already here.\n");
+			else if ((((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0)) || (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2))))
+				printf("Queen can move here.\n");
+			else
+				printf("Queen can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Rook is already here.\n");
+			else if (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2)))
+				printf("Rook can move here.\n");
+			else
+				printf("Rook can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Knight is already here.\n");
+			else if (((abs(letter1 - letter2) == 2) || (abs(letter1 - letter2) == 1)) & ((abs(number1 - number2) == 2) || (abs(number1 - number2) == 1)))
+				printf("Knight can move here.\n");
+			else
+				printf("Knight can't move here.\n");
+			break;
+
+		case 4:
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("King is already here.\n");
+			else if ((abs(letter1 - letter2) == 1) & (abs(number1 - number2) == 1))
+				printf("King can move here.\n");
+			else
+				printf("King can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Queen is already here.\n");
+			else if ((((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0)) || (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2))))
+				printf("Queen can move here.\n");
+			else
+				printf("Queen can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Bishop is already here.\n");
+			else if (((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0))
+				printf("Bishop can move here.\n");
+			else
+				printf("Bishop can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Knight is already here.\n");
+			else if (((abs(letter1 - letter2) == 2) || (abs(letter1 - letter2) == 1)) & ((abs(number1 - number2) == 2) || (abs(number1 - number2) == 1)))
+				printf("Knight can move here.\n");
+			else
+				printf("Knight can't move here.\n");
+			break;
+
+		case 5: 			
+			if ((letter1 == letter2) & (number1 == number2))
+			printf("King is already here.\n");
+			  else if ((abs(letter1 - letter2) == 1) & (abs(number1 - number2) == 1))
+			printf("King can move here.\n");
+			  else
+			printf("King can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Queen is already here.\n");
+			else if ((((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0)) || (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2))))
+				printf("Queen can move here.\n");
+			else
+				printf("Queen can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Bishop is already here.\n");
+			else if (((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0))
+				printf("Bishop can move here.\n");
+			else
+				printf("Bishop can't move here.\n");
+
+			if ((letter1 == letter2) & (number1 == number2))
+				printf("Rook is already here.\n");
+			else if (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2)))
+				printf("Rook can move here.\n");
+			else
+				printf("Rook can't move here.\n");
+			break;
+
+	}
 	return 0;
 }
