@@ -6,7 +6,7 @@ int main()
 	int letter1, letter2, number1, number2;
 	int ChessUnit;
 
-	printf("1 - King \n2 - Queen \n3 - Bishop \n4 - Rook \n5 - Knight \nPick your unit: "); // Êîğîëü, Ôåğçü, Ñëîí, Ëàäüÿ, Êîíü
+	printf("1 - King \n2 - Queen \n3 - Bishop \n4 - Rook \n5 - Knight \nPick your unit: "); // ĞšĞ¾Ñ€Ğ¾Ğ»ÑŒ, Ğ¤ĞµÑ€Ğ·ÑŒ, Ğ¡Ğ»Ğ¾Ğ½, Ğ›Ğ°Ğ´ÑŒÑ, ĞšĞ¾Ğ½ÑŒ
 	scanf_s("%d", &ChessUnit);
 	switch (ChessUnit)
 	{
@@ -37,7 +37,7 @@ int main()
 	else
 		switch (ChessUnit)
 		{
-		case 1: // Êîğîëü
+		case 1: // ĞšĞ¾Ñ€Ğ¾Ğ»ÑŒ
 			if ((letter1 == letter2) & (number1 == number2))
 				printf("King is already here.");
 			else if ((abs(letter1 - letter2) == 1) & (abs(number1 - number2) == 1))
@@ -45,7 +45,7 @@ int main()
 			else
 				printf("King can't move here.");
 			break;
-		case 2: // Ôåğçü
+		case 2: // Ğ¤ĞµÑ€Ğ·ÑŒ
 			if ((letter1 == letter2) & (number1 == number2))
 				printf("Queen is already here.");
 			else if ((((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0)) || (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2))))
@@ -53,7 +53,7 @@ int main()
 			else
 				printf("Queen can't move here.");
 			break;
-		case 3: // Ñëîí
+		case 3: // Ğ¡Ğ»Ğ¾Ğ½
 			if ((letter1 == letter2) & (number1 == number2))
 				printf("Bishop is already here.");
 			else if (((((letter2 + number2) % (letter1 + number1)) == 0) || ((letter1 + number1) % (letter2 + number2)) == 0))
@@ -61,7 +61,7 @@ int main()
 			else
 				printf("Bishop can't move here.");
 			break;
-		case 4: // Ëàäüÿ
+		case 4: // Ğ›Ğ°Ğ´ÑŒÑ
 			if ((letter1 == letter2) & (number1 == number2))
 				printf("Rook is already here.");
 			else if (((letter1 != letter2) & (number1 == number2)) || ((letter1 == letter2) & (number1 != number2)))
@@ -69,7 +69,7 @@ int main()
 			else
 				printf("Rook can't move here.");
 			break;
-		case 5: // Êîíü
+		case 5: // ĞšĞ¾Ğ½ÑŒ
 			if ((letter1 == letter2) & (number1 == number2))
 				printf("Knight is already here.");
 			else if (((abs(letter1 - letter2) == 2) || (abs(letter1 - letter2) == 1)) & ((abs(number1 - number2) == 2) || (abs(number1 - number2) == 1)))
