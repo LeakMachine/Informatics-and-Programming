@@ -17,17 +17,17 @@ int main()
 			price = price - 25;
 			coin_ammount = coin_ammount + 1;
 		}
-		else if ((price - 10 >= 0) & (price - 25 < 0))
+		else if ((price - 10 >= 0) && (price - 25 < 0))
 		{
 			price = price - 10;
 			coin_ammount = coin_ammount + 1;
 		}
-		else if ((price - 5 >= 0 ) & (price - 10 < 0) & (price - 25 < 0))
+		else if ((price - 5 >= 0 ) && (price - 10 < 0) && (price - 25 < 0))
 		{
 			price = price - 5;
 			coin_ammount = coin_ammount + 1;
 		}
-		else if ((price - 1 >= 0) & (price - 5 < 0) & (price - 10 < 0) & (price - 25 < 0))
+		else if ((price - 1 >= 0) && (price - 5 < 0) && (price - 10 < 0) && (price - 25 < 0))
 		{
 			price = price - 1;
 			coin_ammount = coin_ammount + 1;
