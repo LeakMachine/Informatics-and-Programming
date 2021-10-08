@@ -116,7 +116,7 @@ int main()
 	scanf_s("%f", &neededElement);
 
 	for (i = 0; i < size; i++) {
-		if (mass[i] == neededElement);
+		if (mass[i]	 == neededElement)
 			mass[i] = -mass[i];
 
 	}
@@ -126,7 +126,11 @@ int main()
 		printf("%.1f ", mass[i]);
 	}
 
+	printf("\n Reversed array: ");
 
+	for (i = size - 1; i >= 0; i--) {
+			printf("%.1f ", mass[i]);
+	}
 
 	free(mass);												// очищение памяти от динамического массива
 

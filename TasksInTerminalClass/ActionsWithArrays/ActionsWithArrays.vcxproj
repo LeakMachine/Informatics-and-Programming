@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5fb0a610-06dc-46b4-b0f9-60e2254bb4d0}</ProjectGuid>
+    <ProjectGuid>{781e919b-bcc8-403c-9741-5a44b64bba78}</ProjectGuid>
     <RootNamespace>ActionsWithArrays</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
