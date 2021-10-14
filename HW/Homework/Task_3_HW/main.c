@@ -31,7 +31,7 @@ void main()
 		do {
 			printf("\nEnter generated number's length: ");
 			scanf_s("%d", &computerNumberL);
-		} while (computerNumberL < 1 || computerNumberL >= 5);
+		} while (computerNumberL < 1 || computerNumberL > 5);
 
 		int* computerNumberAr;
 		computerNumberAr = (int*)malloc(computerNumberL * sizeof(int));
@@ -45,16 +45,20 @@ void main()
 			computerNumberAr[0] = digits[rand() % 10];
 		}
 
-		while (computerNumberAr[1] == computerNumberAr[0] || computerNumberAr[1] == computerNumberAr[2] || computerNumberAr[1] == computerNumberAr[3]) {
+		while (computerNumberAr[1] == computerNumberAr[0] || computerNumberAr[1] == computerNumberAr[2] || computerNumberAr[1] == computerNumberAr[3] || computerNumberAr[3] == computerNumberAr[4]) {
 			computerNumberAr[1] = digits[rand() % 10];
 		}
 
-		while (computerNumberAr[2] == computerNumberAr[1] || computerNumberAr[2] == computerNumberAr[0] || computerNumberAr[2] == computerNumberAr[3]) {
+		while (computerNumberAr[2] == computerNumberAr[1] || computerNumberAr[2] == computerNumberAr[0] || computerNumberAr[2] == computerNumberAr[3] || computerNumberAr[3] == computerNumberAr[4]) {
 			computerNumberAr[2] = digits[rand() % 10];
 		}
 
-		while (computerNumberAr[3] == computerNumberAr[1] || computerNumberAr[3] == computerNumberAr[2] || computerNumberAr[3] == computerNumberAr[0]) {
+		while (computerNumberAr[3] == computerNumberAr[1] || computerNumberAr[3] == computerNumberAr[2] || computerNumberAr[3] == computerNumberAr[0] || computerNumberAr[3] == computerNumberAr[4]) {
 			computerNumberAr[3] = digits[rand() % 10];
+		}
+
+		while (computerNumberAr[4] == computerNumberAr[1] || computerNumberAr[4] == computerNumberAr[2] || computerNumberAr[4] == computerNumberAr[3] || computerNumberAr[4] == computerNumberAr[0]) {
+			computerNumberAr[4] = digits[rand() % 10];
 		}
 
 		//for (i = 0; i < computerNumberL; i++) {
@@ -101,6 +105,8 @@ void main()
 			if (bullNumber == computerNumberL) {
 				printf("\nYou've guessed the number! \n");
 				cycleExit = 1;
+				free(computerNumberAr);
+				free(playerNumberAr);
 			}
 			else if (bullNumber != computerNumberL) {
 				bullNumber = 0;
@@ -115,9 +121,6 @@ void main()
 
 
 	} while (programExit != 1);
-	
-	free(computerNumberAr);
-	free(playerNumberAr);
 
 	
 }
