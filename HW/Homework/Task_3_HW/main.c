@@ -24,7 +24,6 @@ void main()
 	int programExit = 0, cycleExit = 0;
 	int playerNumber, computerNumberL;
 	int cowNumber = 0, bullNumber = 0;
-	int flagFalseNumber = 0;
 	int i = 0, j = 0;
 
 	do {
