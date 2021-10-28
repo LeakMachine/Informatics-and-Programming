@@ -1,14 +1,14 @@
 // Copyright 2021 Marina Usova
 
 /*
-Постановка задачи.
+РџРѕСЃС‚Р°РЅРѕРІРєР° Р·Р°РґР°С‡Рё.
 
-Реализована некоторая программа, работающая с матричными операциями.
+Р РµР°Р»РёР·РѕРІР°РЅР° РЅРµРєРѕС‚РѕСЂР°СЏ РїСЂРѕРіСЂР°РјРјР°, СЂР°Р±РѕС‚Р°СЋС‰Р°СЏ СЃ РјР°С‚СЂРёС‡РЅС‹РјРё РѕРїРµСЂР°С†РёСЏРјРё.
 
-Программист начал работать над ней и понял, что в ней много дублирования кода. 
-Он посмотрел свой код и не увидел проблем в самом коде. Чтобы исправить
-проблему дублирования он решил вынести часть кода в функции. 
-Помогите ему в этом, а также допишите функционал, который он не успел.
+РџСЂРѕРіСЂР°РјРјРёСЃС‚ РЅР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ РЅР°Рґ РЅРµР№ Рё РїРѕРЅСЏР», С‡С‚Рѕ РІ РЅРµР№ РјРЅРѕРіРѕ РґСѓР±Р»РёСЂРѕРІР°РЅРёСЏ РєРѕРґР°. 
+РћРЅ РїРѕСЃРјРѕС‚СЂРµР» СЃРІРѕР№ РєРѕРґ Рё РЅРµ СѓРІРёРґРµР» РїСЂРѕР±Р»РµРј РІ СЃР°РјРѕРј РєРѕРґРµ. Р§С‚РѕР±С‹ РёСЃРїСЂР°РІРёС‚СЊ
+РїСЂРѕР±Р»РµРјСѓ РґСѓР±Р»РёСЂРѕРІР°РЅРёСЏ РѕРЅ СЂРµС€РёР» РІС‹РЅРµСЃС‚Рё С‡Р°СЃС‚СЊ РєРѕРґР° РІ С„СѓРЅРєС†РёРё. 
+РџРѕРјРѕРіРёС‚Рµ РµРјСѓ РІ СЌС‚РѕРј, Р° С‚Р°РєР¶Рµ РґРѕРїРёС€РёС‚Рµ С„СѓРЅРєС†РёРѕРЅР°Р», РєРѕС‚РѕСЂС‹Р№ РѕРЅ РЅРµ СѓСЃРїРµР».
 
 */
 
@@ -23,23 +23,23 @@
 #define VECTOR_COORDINATES 3
 
 /// <summary>
-/// Генерация случайного числа из указанного диапазона.
+/// Р“РµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р° РёР· СѓРєР°Р·Р°РЅРЅРѕРіРѕ РґРёР°РїР°Р·РѕРЅР°.
 /// </summary>
-/// <param name="maximum"> Максимальное допустимое значение. </param>
-/// <param name="minimum"> Минимальное допустимое значение. </param>
-/// <returns> Сгенерированное значение. </returns>
+/// <param name="maximum"> РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <param name="minimum"> РњРёРЅРёРјР°Р»СЊРЅРѕРµ РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <returns> РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ. </returns>
 int mtxNumberGen(int max, int min) {
     int value = (max - min) * ((float)rand() / RAND_MAX) + min;
     return value;
 }
 
 /// <summary>
-/// Выделение указанного размера памяти.
+/// Р’С‹РґРµР»РµРЅРёРµ СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР° РїР°РјСЏС‚Рё.
 /// </summary>
-/// <param name="matrix"> Матрица. </param>
-/// <param name="n"> Кол-во строк. </param>
-/// <param name="m"> Кол-во столбцов. </param>
-/// <returns> Матрица. </returns>
+/// <param name="matrix"> РњР°С‚СЂРёС†Р°. </param>
+/// <param name="n"> РљРѕР»-РІРѕ СЃС‚СЂРѕРє. </param>
+/// <param name="m"> РљРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ. </param>
+/// <returns> РњР°С‚СЂРёС†Р°. </returns>
 int** mtxSetMemory(int** matrix, int n, int m) {
     matrix = (int**)malloc(n * sizeof(int*));
     for (int i = 0; i < n; i++)
@@ -48,11 +48,11 @@ int** mtxSetMemory(int** matrix, int n, int m) {
 }
 
 /// <summary>
-/// Печать матрицы.
+/// РџРµС‡Р°С‚СЊ РјР°С‚СЂРёС†С‹.
 /// </summary>
-/// <param name="matrix"> Матрица. </param>
-/// <param name="n"> Кол-во столбцов. </param>
-/// <param name="m"> Кол-во строк. </param>
+/// <param name="matrix"> РњР°С‚СЂРёС†Р°. </param>
+/// <param name="n"> РљРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ. </param>
+/// <param name="m"> РљРѕР»-РІРѕ СЃС‚СЂРѕРє. </param>
 void mtxPrint(int** matrix, int n, int m) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -63,13 +63,13 @@ void mtxPrint(int** matrix, int n, int m) {
 }
 
 /// <summary>
-/// Умножение матрицы на число. 
+/// РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° С‡РёСЃР»Рѕ. 
 /// </summary>
-/// <param name="matrix"> Матрица. </param>
-/// <param name="n"> Кол-во столбцов. </param>
-/// <param name="m"> Кол-во строк. </param>
-/// <param name="value"> Число. </param>
-/// <returns> Матрица. </returns>
+/// <param name="matrix"> РњР°С‚СЂРёС†Р°. </param>
+/// <param name="n"> РљРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ. </param>
+/// <param name="m"> РљРѕР»-РІРѕ СЃС‚СЂРѕРє. </param>
+/// <param name="value"> Р§РёСЃР»Рѕ. </param>
+/// <returns> РњР°С‚СЂРёС†Р°. </returns>
 int** mtxMultOnNumb(int** matrix, int n, int m, int value) {
     int** res = NULL;
     res = mtxSetMemory(res, N, M);
@@ -82,14 +82,14 @@ int** mtxMultOnNumb(int** matrix, int n, int m, int value) {
 }
 
 /// <summary>
-/// Заполняет матрицу случайными значениями.
+/// Р—Р°РїРѕР»РЅСЏРµС‚ РјР°С‚СЂРёС†Сѓ СЃР»СѓС‡Р°Р№РЅС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё.
 /// </summary>
-/// <param name="matrix"> Матрица. </param>
-/// <param name="n"> Кол-во столбцов. </param>
-/// <param name="m"> Кол-во строк. </param>
-/// <param name="max"> Макс. допустимое значение. </param>
-/// <param name="min"> Мин. допустимое значение. </param>
-/// <returns> Матрица. </returns>
+/// <param name="matrix"> РњР°С‚СЂРёС†Р°. </param>
+/// <param name="n"> РљРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ. </param>
+/// <param name="m"> РљРѕР»-РІРѕ СЃС‚СЂРѕРє. </param>
+/// <param name="max"> РњР°РєСЃ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <param name="min"> РњРёРЅ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <returns> РњР°С‚СЂРёС†Р°. </returns>
 void mtxFillRandValues(int** matrix, int n, int m, int max, int min) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -99,26 +99,26 @@ void mtxFillRandValues(int** matrix, int n, int m, int max, int min) {
 }
 
 /// <summary>
-/// Освобождает память от матрицы.
+/// РћСЃРІРѕР±РѕР¶РґР°РµС‚ РїР°РјСЏС‚СЊ РѕС‚ РјР°С‚СЂРёС†С‹.
 /// </summary>
-/// <param name="matrix"> Матрица. </param>
-/// <param name="n"> Кол-во столбцов. </param>
-/// <param name="m"> Кол-во строк. </param>
+/// <param name="matrix"> РњР°С‚СЂРёС†Р°. </param>
+/// <param name="n"> РљРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ. </param>
+/// <param name="m"> РљРѕР»-РІРѕ СЃС‚СЂРѕРє. </param>
 void mtxFreeMemory(int** matrix, int n, int m) {
     for (int i = 0; i < n; i++) free(matrix[i]);
     free(matrix);
 }
 
 /// <summary>
-/// Генерирует матрицу.
+/// Р“РµРЅРµСЂРёСЂСѓРµС‚ РјР°С‚СЂРёС†Сѓ.
 /// </summary>
-/// <param name="matrix"> Матрица </param>
-/// <param name="n"> Кол-во столбцов. </param>
-/// <param name="m"> Кол-во строк. </param>
-/// <param name="max"> Макс. допустимое значение. </param>
-/// <param name="min"> Мин. допустимое значение.  </param>
-/// <param name="name"> Буква. </param>
-/// <returns> Матрица. </returns>
+/// <param name="matrix"> РњР°С‚СЂРёС†Р° </param>
+/// <param name="n"> РљРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ. </param>
+/// <param name="m"> РљРѕР»-РІРѕ СЃС‚СЂРѕРє. </param>
+/// <param name="max"> РњР°РєСЃ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <param name="min"> РњРёРЅ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ.  </param>
+/// <param name="name"> Р‘СѓРєРІР°. </param>
+/// <returns> РњР°С‚СЂРёС†Р°. </returns>
 int** mtxCreate(int** matrix, int n, int m, int max, int min, char name) {
     matrix = mtxSetMemory(matrix, n, m);
     mtxFillRandValues(matrix, n, m, max, min);
@@ -128,23 +128,23 @@ int** mtxCreate(int** matrix, int n, int m, int max, int min, char name) {
 }
 
 /// <summary>
-/// Выделяет память для вектора.
+/// Р’С‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РґР»СЏ РІРµРєС‚РѕСЂР°.
 /// </summary>
-/// <param name="matrixVector"> Вектор. </param>
-/// <param name="vc"> Кол-во координат вектора. </param>
-/// <returns> Вектор. </returns>
+/// <param name="matrixVector"> Р’РµРєС‚РѕСЂ. </param>
+/// <param name="vc"> РљРѕР»-РІРѕ РєРѕРѕСЂРґРёРЅР°С‚ РІРµРєС‚РѕСЂР°. </param>
+/// <returns> Р’РµРєС‚РѕСЂ. </returns>
 int* mtxVectorSetMemory(int* matrixVector, int vc) {
     matrixVector = (int*)malloc(vc * sizeof(int*));
     return matrixVector;
 }
 
 /// <summary>
-/// Заполняет координаты вектора случайными значениями.
+/// Р—Р°РїРѕР»РЅСЏРµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ РІРµРєС‚РѕСЂР° СЃР»СѓС‡Р°Р№РЅС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё.
 /// </summary>
-/// <param name="matrixVector"> Вектор. </param>
-/// <param name="vc"> Кол-во координат вектора. </param>
-/// <param name="max"> Макс. допустимое значение. </param>
-/// <param name="min"> Мин. допустимое значение. </param>
+/// <param name="matrixVector"> Р’РµРєС‚РѕСЂ. </param>
+/// <param name="vc"> РљРѕР»-РІРѕ РєРѕРѕСЂРґРёРЅР°С‚ РІРµРєС‚РѕСЂР°. </param>
+/// <param name="max"> РњР°РєСЃ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <param name="min"> РњРёРЅ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
 void mtxVectorFillRandValues(int** matrixVector, int vc, int max, int min) {
     for (int i = 0; i < vc; i++) {
         matrixVector[i] = mtxNumberGen(max, min);
@@ -152,10 +152,10 @@ void mtxVectorFillRandValues(int** matrixVector, int vc, int max, int min) {
 }
 
 /// <summary>
-/// Печатает вектор.
+/// РџРµС‡Р°С‚Р°РµС‚ РІРµРєС‚РѕСЂ.
 /// </summary>
-/// <param name="matrixVector"> Вектор. </param>
-/// <param name="vc"> Кол-во координат. </param>
+/// <param name="matrixVector"> Р’РµРєС‚РѕСЂ. </param>
+/// <param name="vc"> РљРѕР»-РІРѕ РєРѕРѕСЂРґРёРЅР°С‚. </param>
 void mtxVectorPrint(int* matrixVector, int vc) {
     for (int i = 0; i < vc; i++) {
         printf("%d ", matrixVector[i]);
@@ -164,14 +164,14 @@ void mtxVectorPrint(int* matrixVector, int vc) {
 }
 
 /// <summary>
-/// Генерирует вектор.
+/// Р“РµРЅРµСЂРёСЂСѓРµС‚ РІРµРєС‚РѕСЂ.
 /// </summary>
-/// <param name="matrixVector"> Вектор. </param>
-/// <param name="vc"> Кол-во координат. </param>
-/// <param name="max"> Макс. допустимое значение. </param>
-/// <param name="min"> Мин. допустимое значение. </param>
-/// <param name="name"> Буква. </param>
-/// <returns> Вектор. </returns>
+/// <param name="matrixVector"> Р’РµРєС‚РѕСЂ. </param>
+/// <param name="vc"> РљРѕР»-РІРѕ РєРѕРѕСЂРґРёРЅР°С‚. </param>
+/// <param name="max"> РњР°РєСЃ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <param name="min"> РњРёРЅ. РґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ. </param>
+/// <param name="name"> Р‘СѓРєРІР°. </param>
+/// <returns> Р’РµРєС‚РѕСЂ. </returns>
 int* mtxVectorCreate(int* matrixVector, int vc, int max, int min, char name) {
     matrixVector = mtxVectorSetMemory(matrixVector, VECTOR_COORDINATES);
     mtxVectorFillRandValues(matrixVector, VECTOR_COORDINATES, max, min);
@@ -181,12 +181,12 @@ int* mtxVectorCreate(int* matrixVector, int vc, int max, int min, char name) {
 }
 
 /// <summary>
-/// Умножает вектор на скаляр.
+/// РЈРјРЅРѕР¶Р°РµС‚ РІРµРєС‚РѕСЂ РЅР° СЃРєР°Р»СЏСЂ.
 /// </summary>
-/// <param name="matrixVector"> Вектор. </param>
-/// <param name="vc"> Кол-во координат. </param>
-/// <param name="value"> Скаляр. </param>
-/// <returns> Вектор. </returns>
+/// <param name="matrixVector"> Р’РµРєС‚РѕСЂ. </param>
+/// <param name="vc"> РљРѕР»-РІРѕ РєРѕРѕСЂРґРёРЅР°С‚. </param>
+/// <param name="value"> РЎРєР°Р»СЏСЂ. </param>
+/// <returns> Р’РµРєС‚РѕСЂ. </returns>
 int* mtxVectorMultOnNumb(int* matrixVector, int vc, int value) {
     int* res = NULL;
     res = mtxVectorSetMemory(res, VECTOR_COORDINATES);
@@ -214,7 +214,7 @@ int main() {
 
   mtxFreeMemory(result, N, M);
 
-  // транспонирование матрицы
+  // С‚СЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРёРµ РјР°С‚СЂРёС†С‹
   result = mtxSetMemory(result, M, N);
 
   for (int i = 0; i < M; i++) {
@@ -227,7 +227,7 @@ int main() {
   mtxPrint(result, M, N);
   mtxFreeMemory(result, M, N);
 
-  // умножение двух матриц
+  // СѓРјРЅРѕР¶РµРЅРёРµ РґРІСѓС… РјР°С‚СЂРёС†
 
   result = mtxSetMemory(result, N, K);
 
@@ -244,7 +244,7 @@ int main() {
   mtxPrint(result, N, K);
   mtxFreeMemory(result, N, K);
 
-  // сложение двух матриц
+  // СЃР»РѕР¶РµРЅРёРµ РґРІСѓС… РјР°С‚СЂРёС†
   result = mtxSetMemory(result, N, M);
 
   if (N == K) {
@@ -262,12 +262,12 @@ int main() {
 
   mtxFreeMemory(result, N, K);
 
-  // вектора
+  // РІРµРєС‚РѕСЂР°
 
   vector_A = mtxVectorCreate(vector_A, VECTOR_COORDINATES, max, min, 'A');
   vector_B = mtxVectorCreate(vector_B, VECTOR_COORDINATES, max, min, 'B');
 
-  // умножение вектора на число
+  // СѓРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂР° РЅР° С‡РёСЃР»Рѕ
 
   value = mtxNumberGen(max, min);
 
@@ -279,7 +279,7 @@ int main() {
 
   free(resultV);
 
-  // сложение двух векторов
+  // СЃР»РѕР¶РµРЅРёРµ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ
 
   resultV = mtxVectorSetMemory(resultV, VECTOR_COORDINATES);
 
@@ -292,7 +292,7 @@ int main() {
 
   free(resultV);
 
-  // умножение двух векторов
+  // СѓРјРЅРѕР¶РµРЅРёРµ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ
   resultV = mtxVectorSetMemory(resultV, VECTOR_COORDINATES);
 
   if (VECTOR_COORDINATES < 3) {
@@ -324,7 +324,7 @@ int main() {
 
   free(resultV);
 
-  // очищение всей выделенной памяти
+  // РѕС‡РёС‰РµРЅРёРµ РІСЃРµР№ РІС‹РґРµР»РµРЅРЅРѕР№ РїР°РјСЏС‚Рё
   mtxFreeMemory(matrix_A, N, M);
   mtxFreeMemory(matrix_B, M, N);
 
