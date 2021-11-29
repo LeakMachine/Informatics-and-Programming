@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+#include <malloc.h>
 
 void main() 
 {
@@ -32,12 +33,15 @@ void main()
 			scanf_s("%d", &computerNumberL);
 		} while (computerNumberL < 1 || computerNumberL > 5);
 
+		srand(time(0));
+
 		int* computerNumberAr;
 		computerNumberAr = (int*)malloc(computerNumberL * sizeof(int));
 
-		srand(time(0));
+
 		for (i = 0; i < computerNumberL; i++) {
-			computerNumberAr[i] = digits[rand() % 10];
+			int index = rand() % 10;
+			computerNumberAr[i] = digits[index];
 		}
 
 		while (computerNumberAr[0] == computerNumberAr[1] || computerNumberAr[0] == computerNumberAr[2] || computerNumberAr[0] == computerNumberAr[3] || computerNumberAr[0] == 0)   {

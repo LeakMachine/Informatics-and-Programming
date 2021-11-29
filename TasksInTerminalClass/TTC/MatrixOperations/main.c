@@ -17,9 +17,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 4
+#define N 3
 #define M 3
-#define K 2
+#define K 3
 #define VECTOR_COORDINATES 3
 
 /// <summary>

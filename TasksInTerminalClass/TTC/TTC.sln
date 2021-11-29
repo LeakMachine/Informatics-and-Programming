@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Verification_Task_1", "Veri
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MatrixOperations", "MatrixOperations\MatrixOperations.vcxproj", "{D350579F-C5DC-469D-BD10-C5701F4FE379}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Task_4", "Task_4\Task_4.vcxproj", "{F0CFD587-E819-43FE-B4A6-1115E839BFCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{D350579F-C5DC-469D-BD10-C5701F4FE379}.Release|x64.Build.0 = Release|x64
 		{D350579F-C5DC-469D-BD10-C5701F4FE379}.Release|x86.ActiveCfg = Release|Win32
 		{D350579F-C5DC-469D-BD10-C5701F4FE379}.Release|x86.Build.0 = Release|Win32
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Debug|x64.ActiveCfg = Debug|x64
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Debug|x64.Build.0 = Debug|x64
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Debug|x86.ActiveCfg = Debug|Win32
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Debug|x86.Build.0 = Debug|Win32
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Release|x64.ActiveCfg = Release|x64
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Release|x64.Build.0 = Release|x64
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Release|x86.ActiveCfg = Release|Win32
+		{F0CFD587-E819-43FE-B4A6-1115E839BFCF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

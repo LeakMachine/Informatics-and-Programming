@@ -17,6 +17,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <malloc.h>
 #define ARRAY_SIZE 10										// макрос
 
 int main()
@@ -148,7 +149,6 @@ int main()
 	printf("\n ALSO a reversed array: ");
 
 	for (i = 0, j = size - 1; j >= 0; j--, i++) {
-		mass2[i] = mass[j];
 		mass3[i] = mass[i];
 	}
 

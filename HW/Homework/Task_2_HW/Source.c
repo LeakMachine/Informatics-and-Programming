@@ -38,8 +38,6 @@ int main(){
 
 			break;
 		case 2: // пользователь загадывает
-			printf("Enter a number: ");
-			scanf_s("%d", &number);
 			while (exit != 1) {
 				srand(time(NULL));
 				guess = rand() % d2 + 1 ;
