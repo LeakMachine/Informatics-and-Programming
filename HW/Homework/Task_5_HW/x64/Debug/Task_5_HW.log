@@ -1,0 +1,14 @@
+﻿  main.c
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(154,32): warning C4133: =: несовместимые типы - из "char *" в "int *"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(156,37): warning C4133: =: несовместимые типы - из "char *" в "int *"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(165,28): warning C4133: =: несовместимые типы - из "int *" в "char *"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(172,28): warning C4133: =: несовместимые типы - из "int *" в "char *"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(182,24): warning C4133: =: несовместимые типы - из "int *" в "char *"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(191,24): warning C4133: =: несовместимые типы - из "int *" в "char *"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(146,1): warning C4133: инициализация: несовместимые типы - из "char **" в "int **"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(147,1): warning C4133: инициализация: несовместимые типы - из "char **" в "int **"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(257,7): warning C4013: gets: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(228,18): warning C4101: cur_file: неиспользованная локальная переменная
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(235,8): warning C4101: full_file_path: неиспользованная локальная переменная
+C:\Users\dimos\Informatics-and-Programming\HW\Homework\Task_5_HW\main.c(23): warning C4715: getFileSize: значение возвращается не при всех путях выполнения
+  Task_5_HW.vcxproj -> C:\Users\dimos\Informatics-and-Programming\HW\Homework\x64\Debug\Task_5_HW.exe

@@ -6,54 +6,35 @@
 #include <locale.h>
 #include <time.h>
 
-/// <summary>
-/// функция, возвращающая размер файла
-/// </summary>
-/// <param name="file">полный или относительный путь до файла</param>
-/// <returns>размер файла</returns>
+int quick_count = 0, merge_count = 0, selection_count = 0;
+
 int getFileSize(const char* file) {
   struct stat st;
   int full_size = 0;
 
   if (stat(file, &st) == 0) {
-    // если это папка
     if ((st.st_mode & S_IFMT) == S_IFDIR)
       return -1;
-    // если обычный файл
     else if ((st.st_mode & S_IFMT) == S_IFREG)
       return st.st_size;
-    // если что-то иное (сокет, FIFO (именованный канал) и др.)
     else
       return -2;
   }
 }
 
-/// <summary>
-/// функция, печатающая названия файлов и размеры в каталоге и внутренних подкаталогов
-/// </summary>
-/// <param name="path">путь до каталога</param>
 int getSizesFromDir(char* path, char** testchar2, int* fileSizeArray, int i) {
   struct dirent* cur_file;
   DIR* dir;
 
   char full_file_path[200];
 
-  // открываем рабочую директорию
   dir = opendir(path);
-  // если удалось открыть директорию
   if (dir) {
-    // считываем файлы внутри директории в переменную cur_file, пока файлы не кончатся
     while ((cur_file = readdir(dir)) != NULL) {
-      // игнорируем системные папки ./ и ../
-      // если попались записи, начинающиеся на . или .. - пропускаем их
       if (strcmp(".", cur_file->d_name) && strcmp("..", cur_file->d_name)) {
-        // копируем путь в новую переменную, вставляем символ разделителя директории,
-        // добавляем имя элемента (файла или папки)
         strcpy(full_file_path, strcat(strcat(strcpy(full_file_path, path), "/"), cur_file->d_name));
-        // получаем размер или -1, если это не файл, а вложенная папка
         int cur_file_size = getFileSize(full_file_path);
         if (cur_file_size >= 0) {
-          // для файла печатаем его имя и размер
           printf("%s - %d B (%d kB)\n", cur_file->d_name, cur_file_size, cur_file_size / 1024);
           fileSizeArray[i] = cur_file_size;
           int k;
@@ -63,17 +44,16 @@ int getSizesFromDir(char* path, char** testchar2, int* fileSizeArray, int i) {
           i++;
         }
         else if (cur_file_size == -1)
-          // для вложенной папки вызываем РЕКУРСИВНО написанный метод
           getSizesFromDir(full_file_path, testchar2, fileSizeArray, i);
       }
     }
-    // не забываем закрыть директорию
     closedir(dir);
   }
   return i;
 }
 
 void selectionSort(int* arr1, char** arr2, int size) {
+
   for (int i = 0; i < size - 1; i++)
   {
     int min_i = i;
@@ -83,6 +63,7 @@ void selectionSort(int* arr1, char** arr2, int size) {
       if (arr1[j] < arr1[min_i])
       {
         min_i = j;
+        selection_count++;
       }
     }
 
@@ -96,6 +77,7 @@ void selectionSort(int* arr1, char** arr2, int size) {
       arr2[i] = arr2[min_i];
       arr2[min_i] = temp2;
 
+      selection_count++;
     }
   }
 
@@ -112,7 +94,6 @@ void selectionSort(int* arr1, char** arr2, int size) {
 
 void quickSort(int* arr1, int size, int first, int last, char** arr2)
 {
-
     int i = first, j = last;
     int x = arr1[(first + last) / 2];
     do {
@@ -134,6 +115,7 @@ void quickSort(int* arr1, int size, int first, int last, char** arr2)
                 char* temp2 = arr2[i];
                 arr2[i] = arr2[j];
                 arr2[j] = temp2;
+                quick_count++;
             }
             i++;  j--;
         }
@@ -146,9 +128,9 @@ void quickSort(int* arr1, int size, int first, int last, char** arr2)
     if (i == ((size - 1) / 2)) {
         for (int i = 0; i < size; i++) {
             for (j = 0; j < 100; j++) {
-                printf("%c", arr2[i][j]);
+            printf("%c", arr2[i][j]);
             }
-            j = 0;
+           j = 0;
             printf(" - %d (B) (%d kB)\n", arr1[i], arr1[i] / 1024);
         }
     }
@@ -181,12 +163,14 @@ void Merge(int* arr1, char** arr2, int first, int middle, int last, int size) {
         {
             arr1[k] = L[i];
             arr2[k] = L2[i];
+            merge_count++;
             i++;
         }
         else
         {
             arr1[k] = R[j];
             arr2[k] = R2[j];
+            merge_count++;
             j++;
         }
         k++;
@@ -198,6 +182,7 @@ void Merge(int* arr1, char** arr2, int first, int middle, int last, int size) {
         arr2[k] = L2[i];
         i++;
         k++;
+        merge_count++;
     }
 
     while (j < n2)
@@ -206,18 +191,18 @@ void Merge(int* arr1, char** arr2, int first, int middle, int last, int size) {
         arr2[k] = R2[j];
         j++;
         k++;
+        merge_count++;
     }
 
     if (i == (size / 2)) {
        int j = 0;
-    
        for (int i = 0; i < (size); i++) {
             for (j = 0; j < 100; j++) {
                 printf("%c", arr2[i][j]);
-          }
+            }
             j = 0;
             printf(" - %d (B) (%d kB)\n", arr1[i], arr1[i] / 1024);
-        }
+       }
     }
 
 }
@@ -232,7 +217,7 @@ void mergeSort(int* arr1, char** arr2, int first, int last, int size) {
   
 }
 
-#define MAX_FILE_COUNT 20
+#define MAX_FILE_COUNT 10000
 
 int main() {
 
@@ -242,6 +227,8 @@ int main() {
 
   struct dirent* cur_file;
   DIR* dir;
+
+  time_t time0, time1;
 
   int file_count = 0;
 
@@ -266,11 +253,9 @@ int main() {
 
   int exit = 0;
 
-  //считываем путь (по сути scanf_s для строки)
   printf("Input path to dir: ");
   gets(path);
 
-  // открываем рабочую директорию
   dir = opendir(path);
 
   file_count = getSizesFromDir(path, testchar2, fileSizeArray, 0);
@@ -297,6 +282,7 @@ int main() {
       }
 
       int sortSelect;
+      double timer;
 
       printf("Enter type of sort you would like to do (1 - Selection, 2 - Quick, 3 - Merge): ");
       scanf_s("%d", &sortSelect);
@@ -304,27 +290,30 @@ int main() {
       switch (sortSelect) {
       case 1: {
           printf("-------------------------------------------\n");
-          int time = clock();
+          time0 = clock();
           selectionSort(fileSizeArray, testchar2, file_count);
-          time = clock() - time;
-          printf("%d - time of work (ms)", time);
+          time1 = clock();
+          timer = (double)(time1 - time0) / 1000;
+          printf("%.7lf - time of work (ms) | %d - amount of permutations", timer, selection_count);
           break;
       }
       case 2: {
           printf("-------------------------------------------\n");
-          int time = clock();
+          time0 = clock();
           quickSort(cFileSizeArray, file_count, 0, file_count - 1, testchar3);
-          time = clock() - time;
-          printf("%d - time of work (ms)", time);
+          time1 = clock();
+          timer = (double)(time1 - time0) / 1000;
+          printf("%.7lf - time of work (ms) | %d - amount of permutations", timer, quick_count);
           break;
       }
 
       case 3: {
           printf("-------------------------------------------\n");
-          int time = clock();
+          time0 = clock();
           mergeSort(cFileSizeArray2, testchar4, 0, file_count - 1, file_count);
-          time = clock() - time;
-          printf("%d - time of work (ms)", time);
+          time1 = clock();
+          timer = (double)(time1 - time0) / 1000;
+          printf("%.7lf - time of work (ms) | %d - amount of permutations", timer, merge_count);
           break;
       }
 
